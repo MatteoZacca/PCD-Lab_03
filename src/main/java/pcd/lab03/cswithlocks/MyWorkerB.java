@@ -14,6 +14,12 @@ public class MyWorkerB extends Worker {
 	public void run(){
 		while (true){
 		  try {
+			  /* Quando un thread chiama 'lock.lockInterruptibly()' il thread rimane in
+			  attesa finchè non riesce ad acquisire il lock, se questo è già detenuto da
+			  un altro thread. Durante l'attesa il thread può essere interrotto (ad
+			  esempio con 'Thread.interrupt()'. Se il thread viene interrotto mentre è in
+			  attesa, viene generata un'eccezione 'InterruptedException', e il thread non
+			  acquisisce il lock. */
 			  lock.lockInterruptibly();
 			  b1();	
 			  b2();
